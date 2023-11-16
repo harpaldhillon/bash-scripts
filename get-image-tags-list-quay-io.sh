@@ -1,4 +1,10 @@
-#!/bin/bas
+#!/bin/bash
+
+# Script Usage
+# ./get-image-tags-list-quay-io.sh coreos/etcd
+
+# To print all unique names
+# ./get-image-tags-list-quay-io.sh coreos/etcd | jq -r '.tags | [.[] | {name: .name, last_modified: .last_modified}]'|grep name|sort|uniq
 
 base_url="https://quay.io/api/v1/repository/${1}/tag"
 page=1
